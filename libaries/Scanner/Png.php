@@ -1,6 +1,7 @@
 <?php
-final class PNGBombScanner{
+final class PNGScanner{
 
+    /// Returns true if files magic number is equal to PNG standard
     static function isPng($file): bool{
         if(file_exists($file)){
             $stream = fopen($file, "rb");
@@ -9,12 +10,13 @@ final class PNGBombScanner{
         return false;
     }
 
+    /// Returns true if file is of valid PNG format
     static function Validate($file): bool{
         if(!file_exists($file)){
             return false;
         }
 
-        if(!PNGBombScanner::isPng($file)){
+        if(!PNGScanner::isPng($file)){
             return false;
         }
 
